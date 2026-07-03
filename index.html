@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus-Center | Présentation</title>
+    <title>Nexus-Center | Officiel</title>
     <style>
-        /* Dégradé style Discord Nitro */
+        /* Base & Scroll fluide */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(115deg, #b81d61 0%, #1c0e3a 35%, #0d1b2a 70%, #005f73 100%);
@@ -13,129 +17,210 @@
             color: #dbdee1;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
         }
 
-        /* Boîte centrale style interface Discord */
-        .container {
-            max-width: 800px;
-            padding: 50px 40px;
-            background: rgba(15, 15, 20, 0.75);
-            backdrop-filter: blur(12px);
+        /* Barre de navigation fixe en haut */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #b5bac1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Structure des sections du site */
+        section {
+            padding: 100px 20px 80px 20px; /* Espace pour pas que le texte soit sous le header */
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Layout asymétrique (gauche / droite) */
+        .text-block {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .side-block {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(15, 15, 20, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 40px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            text-align: left; /* Aligné à gauche pour une lecture plus pro */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
+        /* Typographie */
         h1 {
             color: #ffffff;
-            font-size: 3.5rem;
-            margin-top: 0;
-            margin-bottom: 25px;
+            font-size: 4rem;
+            margin: 0 0 10px 0;
             font-weight: 800;
-            letter-spacing: -1.5px;
-            text-align: center; /* Le titre reste centré */
+            letter-spacing: -2px;
         }
 
         h2 {
             color: #ffffff;
-            font-size: 1.6rem;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            border-left: 4px solid #5865f2; /* Petite barre violette Discord sur le côté */
-            padding-left: 12px;
+            font-size: 2.5rem;
+            margin-top: 0;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         p {
             color: #b5bac1;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.6;
-            margin-bottom: 20px;
         }
 
-        /* Section des points clés de l'objectif */
-        .objectives-list {
-            margin: 20px 0;
-            padding-left: 5px;
-        }
-
-        .objective-item {
-            background-color: #111214;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            display: flex;
-            align-items: center;
-        }
-
-        .objective-item strong {
-            color: #ffffff;
-            margin-right: 8px;
-        }
-
-        /* Bouton pour continuer vers les projets (plus tard) */
-        .cta-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .cta-btn {
+        /* Boutons */
+        .btn-primary {
             display: inline-block;
-            background-color: #5865f2; /* Bouton Blurple Discord */
+            background-color: #5865f2;
             color: white;
-            padding: 16px 40px;
+            padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 15px;
+            transition: background-color 0.2s;
         }
 
-        .cta-btn:hover {
+        .btn-primary:hover {
             background-color: #4752c4;
-            transform: translateY(-1px);
+        }
+
+        /* Liste d'objectifs stylée */
+        .obj-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #b81d61;
+        }
+
+        .obj-card strong {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Nexus-Center</h1>
+    <!-- Barre de navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Nexus-Center</div>
+            <nav class="nav-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#presentation">Qui sommes-nous</a>
+                <a href="#objectifs">Objectifs</a>
+                <a href="#projets">Nos Projets</a>
+                <a href="#partenaires">Partenaires</a>
+                <a href="#recrutement">Recrutement</a>
+            </nav>
+        </div>
+    </header>
 
-        <h2>Qui sommes-nous ?</h2>
-        <p>
-            Nexus-Center est une filiale et un écosystème en plein développement sur Discord. Pensé comme un hub central, notre réseau regroupe plusieurs espaces thématiques conçus pour répondre aux besoins des utilisateurs, qu'il s'agisse de partager, d'échanger ou de propulser des projets indépendants.
-        </p>
-
-        <h2>Notre objectif</h2>
-        <p>
-            Notre mission est de centraliser les outils et les communautés pour offrir la meilleure expérience possible sur Discord. Nous fonctionnons autour de trois grands piliers :
-        </p>
-
-        <div class="objectives-list">
-            <div class="objective-item">
-                <p style="margin: 0;">🚀 <strong>L'Acquisition & la Visibilité :</strong> Permettre à chacun de faire grandir son projet grâce à notre infrastructure publicitaire dédiée.</p>
-            </div>
-            <div class="objective-item">
-                <p style="margin: 0;">💬 <strong>Le Partage :</strong> Unir les membres autour d'une communauté active, soudée et axée sur l'entraide.</p>
-            </div>
-            <div class="objective-item">
-                <p style="margin: 0;">🛠️ <strong>L'Innovation :</strong> Développer nos propres outils et bots maison pour automatiser, sécuriser et monétiser vos espaces (comme l'accès à nos salons personnalisés premium).</p>
+    <!-- SECTION 1 : ACCUEIL HERO -->
+    <section id="accueil" style="min-height: 85vh;">
+        <div class="content-wrapper" style="text-align: center; justify-content: center;">
+            <div class="text-block" style="max-width: 800px;">
+                <h1>Nexus-Center</h1>
+                <p style="font-size: 1.4rem; color: #dbdee1;">L'écosystème nouvelle génération pour vos communautés et projets Discord.</p>
+                <a href="#presentation" class="btn-primary">Découvrir la filiale</a>
             </div>
         </div>
+    </section>
 
-        <div class="cta-container">
-            <a href="#" class="cta-btn">Découvrir notre écosystème</a>
+    <!-- SECTION 2 : QUI SOMMES-NOUS (Texte à gauche, Carte à droite) -->
+    <section id="presentation">
+        <div class="content-wrapper">
+            <div class="text-block">
+                <h2>Qui sommes-nous ?</h2>
+                <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de plateformes thématiques.</p>
+                <p>Fondé avec l'ambition de centraliser l'activité, notre hub fait le pont entre le divertissement communautaire, l'acquisition publicitaire et l'innovation technologique via nos outils sur mesure.</p>
+            </div>
+            <div class="side-block">
+                <h3 style="color: #ffffff; margin-top: 0;">Un Hub unique</h3>
+                <p style="font-size: 0.95rem;">En rejoignant Nexus-Center, vous n'entrez pas sur un serveur isolé. Vous intégrez un écosystème complet pensé pour l'évolution et le partage de projets.</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- SECTION 3 : NOTRE OBJECTIF (Carte à gauche, Texte à droite) -->
+    <section id="objectifs">
+        <div class="content-wrapper">
+            <!-- On inverse l'ordre visuel en mettant la box d'infos ici -->
+            <div class="side-block">
+                <div class="obj-card">
+                    <p style="margin:0;">🚀 <strong>Visibilité :</strong> Propulser vos serveurs via nos infrastructures de pub.</p>
+                </div>
+                <div class="obj-card" style="border-left-color: #5865f2;">
+                    <p style="margin:0;">💬 <strong>Engagement :</strong> Maintenir une communauté active et à l'écoute.</p>
+                </div>
+                <div class="obj-card" style="border-left-color: #005f73;">
+                    <p style="margin:0;">🛒 <strong>Monétisation :</strong> Vous proposer des espaces privatifs premium exclusifs.</p>
+                </div>
+            </div>
+            
+            <div class="text-block">
+                <h2>Notre Objectif</h2>
+                <p>Notre but principal est de casser les barrières habituelles de Discord en offrant une structure stable et professionnelle.</p>
+                <p>Nous mettons un point d'honneur à offrir des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Les sections suivantes (Projets, Partenaires...) sont prêtes à être codées -->
 
 </body>
 </html>
