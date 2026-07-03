@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus-Center | Écosystème Discord</title>
+    <title>Nexus-Center | Présentation</title>
     <style>
-        /* Dégradé exact style Discord Nitro (Rose fuchsia -> Violet profond -> Bleu pétrole) */
+        /* Dégradé style Discord Nitro */
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(115deg, #b81d61 0%, #1c0e3a 35%, #0d1b2a 70%, #005f73 100%);
@@ -21,76 +21,75 @@
             text-align: center;
         }
 
-        /* Boîte centrale style "interface Discord" très sombre et transparente */
+        /* Boîte centrale style interface Discord */
         .container {
-            max-width: 850px;
-            padding: 50px 30px;
+            max-width: 800px;
+            padding: 50px 40px;
             background: rgba(15, 15, 20, 0.75);
             backdrop-filter: blur(12px);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.04);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            text-align: left; /* Aligné à gauche pour une lecture plus pro */
         }
 
         h1 {
             color: #ffffff;
-            font-size: 3.8rem;
-            margin-bottom: 5px;
+            font-size: 3.5rem;
+            margin-top: 0;
+            margin-bottom: 25px;
             font-weight: 800;
             letter-spacing: -1.5px;
+            text-align: center; /* Le titre reste centré */
         }
 
-        .subtitle {
-            color: #949ba4;
-            font-size: 1.25rem;
-            margin-bottom: 45px;
-            font-weight: 400;
-        }
-
-        /* Grille des serveurs */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            width: 100%;
-            margin-bottom: 45px;
-        }
-
-        /* Cartes au look ultra sombre Discord */
-        .card {
-            background-color: #111214; /* Le noir officiel des salons Discord */
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-decoration: none;
+        h2 {
             color: #ffffff;
-            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            background-color: #1e1f22;
-            border-color: #5865f2; /* Lueur Blurple au survol */
-        }
-
-        .card h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
             font-weight: 700;
+            border-left: 4px solid #5865f2; /* Petite barre violette Discord sur le côté */
+            padding-left: 12px;
         }
 
-        .card p {
-            color: #949ba4;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin: 0;
+        p {
+            color: #b5bac1;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* Bouton Boutique Vert Discord */
+        /* Section des points clés de l'objectif */
+        .objectives-list {
+            margin: 20px 0;
+            padding-left: 5px;
+        }
+
+        .objective-item {
+            background-color: #111214;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            align-items: center;
+        }
+
+        .objective-item strong {
+            color: #ffffff;
+            margin-right: 8px;
+        }
+
+        /* Bouton pour continuer vers les projets (plus tard) */
+        .cta-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
         .cta-btn {
             display: inline-block;
-            background-color: #23a55a; /* Vert vif des boutons Discord */
+            background-color: #5865f2; /* Bouton Blurple Discord */
             color: white;
             padding: 16px 40px;
             border-radius: 8px;
@@ -101,12 +100,8 @@
         }
 
         .cta-btn:hover {
-            background-color: #1a7a42;
+            background-color: #4752c4;
             transform: translateY(-1px);
-        }
-        
-        .cta-btn:active {
-            transform: translateY(1px);
         }
     </style>
 </head>
@@ -114,26 +109,32 @@
 
     <div class="container">
         <h1>Nexus-Center</h1>
-        <p class="subtitle">Le hub officiel pour propulser vos projets et serveurs Discord</p>
 
-        <div class="grid">
-            <a href="#" class="card">
-                <h3>💬 Communauté</h3>
-                <p>Rejoignez un espace d'échange actif pour discuter et partager avec d'autres membres.</p>
-            </a>
+        <h2>Qui sommes-nous ?</h2>
+        <p>
+            Nexus-Center est une filiale et un écosystème en plein développement sur Discord. Pensé comme un hub central, notre réseau regroupe plusieurs espaces thématiques conçus pour répondre aux besoins des utilisateurs, qu'il s'agisse de partager, d'échanger ou de propulser des projets indépendants.
+        </p>
 
-            <a href="#" class="card">
-                <h3>📢 Publicité</h3>
-                <p>Boostez la visibilité de vos projets et touchez une nouvelle audience qualifiée.</p>
-            </a>
+        <h2>Notre objectif</h2>
+        <p>
+            Notre mission est de centraliser les outils et les communautés pour offrir la meilleure expérience possible sur Discord. Nous fonctionnons autour de trois grands piliers :
+        </p>
 
-            <a href="#" class="card">
-                <h3>🤖 Nexus Bot</h3>
-                <p>Découvrez notre bot maison et configurez ses outils exclusifs sur vos serveurs.</p>
-            </a>
+        <div class="objectives-list">
+            <div class="objective-item">
+                <p style="margin: 0;">🚀 <strong>L'Acquisition & la Visibilité :</strong> Permettre à chacun de faire grandir son projet grâce à notre infrastructure publicitaire dédiée.</p>
+            </div>
+            <div class="objective-item">
+                <p style="margin: 0;">💬 <strong>Le Partage :</strong> Unir les membres autour d'une communauté active, soudée et axée sur l'entraide.</p>
+            </div>
+            <div class="objective-item">
+                <p style="margin: 0;">🛠️ <strong>L'Innovation :</strong> Développer nos propres outils et bots maison pour automatiser, sécuriser et monétiser vos espaces (comme l'accès à nos salons personnalisés premium).</p>
+            </div>
         </div>
 
-        <a href="#" class="cta-btn">🛒 Accéder à la Boutique (Salons Persos)</a>
+        <div class="cta-container">
+            <a href="#" class="cta-btn">Découvrir notre écosystème</a>
+        </div>
     </div>
 
 </body>
