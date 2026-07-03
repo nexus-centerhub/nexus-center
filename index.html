@@ -56,8 +56,8 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-bottom: 15px; /* Crée un pont invisible pour la souris */
-            margin-bottom: -15px; /* Annule l'espace pour garder l'alignement */
+            padding-bottom: 15px;
+            margin-bottom: -15px;
         }
 
         .dropdown-content {
@@ -71,7 +71,7 @@
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 10px 0;
-            margin-top: 0; /* Collé au pont invisible */
+            margin-top: 0;
         }
 
         .dropdown-content a {
@@ -96,53 +96,43 @@
             color: #ffffff;
         }
 
-        /* Structure des sections élargie */
+        /* Structure des sections */
         section {
-            padding: 100px 40px 80px 40px;
-            min-height: 50vh;
+            padding: 120px 40px 80px 40px;
+            min-height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative; /* Indispensable pour positionner les bulles */
         }
 
-        /* Bulle lumineuse derrière la section Présentation (à gauche) */
-        #presentation::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(184, 29, 97, 0.4) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
-            pointer-events: none;
+        /* La grosse bulle avec effet glow autour du texte (comme sur ton dessin) */
+        .section-card {
+            width: 100%;
+            max-width: 1300px;
+            background: rgba(15, 15, 25, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 50px 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Bulle lumineuse derrière la section Objectifs (à droite) */
-        #objectifs::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            transform: translate(0%, -50%);
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(0, 95, 115, 0.4) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
-            pointer-events: none;
+        /* Glow personnalisé pour chaque section selon la couleur du fond */
+        .glow-pink {
+            box-shadow: 0 0 50px rgba(184, 29, 97, 0.25), 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .glow-cyan {
+            box-shadow: 0 0 50px rgba(0, 95, 73, 0.3), 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         .content-wrapper {
-            max-width: 1400px;
-            width: 100%;
             display: flex;
             gap: 60px;
             align-items: center;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1; /* Aligne le contenu au-dessus des bulles */
         }
 
         .text-block {
@@ -156,13 +146,12 @@
 
         .side-block {
             flex: 0.9;
-            min-width: 350px;
-            background: rgba(15, 15, 20, 0.6);
-            backdrop-filter: blur(8px);
-            padding: 35px;
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            padding: 30px;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         h1 {
@@ -184,7 +173,7 @@
         p {
             color: #b5bac1;
             font-size: 1.2rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .btn-primary {
@@ -242,7 +231,7 @@
     </header>
 
     <!-- SECTION 1 : ACCUEIL -->
-    <section id="accueil" style="min-height: 80vh;">
+    <section id="accueil" style="min-height: 85vh;">
         <div class="content-wrapper" style="text-align: center; justify-content: center;">
             <div class="text-block" style="max-width: 900px;">
                 <h1>Nexus-Center</h1>
@@ -254,38 +243,42 @@
 
     <!-- SECTION 2 : QUI SOMMES-NOUS -->
     <section id="presentation">
-        <div class="content-wrapper">
-            <div class="text-block">
-                <h2>Qui sommes-nous ?</h2>
-                <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de plateformes thématiques.</p>
-                <p>Fondé avec l'ambition de centraliser l'activité, notre hub fait le pont entre le divertissement communautaire, l'acquisition publicitaire et l'innovation technologique via nos outils sur mesure.</p>
-            </div>
-            <div class="side-block">
-                <h3 style="color: #ffffff; margin: 0 0 10px 0;">Un Hub unique</h3>
-                <p style="font-size: 1rem; margin: 0;">En rejoignant Nexus-Center, vous n'entrez pas sur un serveur isolé. Vous intégrez un écosystème complet pensé pour l'évolution et le partage de projets.</p>
+        <div class="section-card glow-pink">
+            <div class="content-wrapper">
+                <div class="text-block">
+                    <h2>Qui sommes-nous ?</h2>
+                    <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de plateformes thématiques.</p>
+                    <p>Fondé avec l'ambition de centraliser l'activité, notre hub fait le pont entre le divertissement communautaire, l'acquisition publicitaire et l'innovation technologique via nos outils sur mesure.</p>
+                </div>
+                <div class="side-block">
+                    <h3 style="color: #ffffff; margin: 0 0 10px 0;">Un Hub unique</h3>
+                    <p style="font-size: 1rem; margin: 0;">En rejoignant Nexus-Center, vous n'entrez pas sur un serveur isolé. Vous intégrez un écosystème complet pensé pour l'évolution et le partage de projets.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 3 : NOTRE OBJECTIF -->
     <section id="objectifs">
-        <div class="content-wrapper">
-            <div class="side-block">
-                <div class="obj-card">
-                    <p>🚀 <strong>Visibilité :</strong> Propulser vos serveurs via nos infrastructures de pub.</p>
+        <div class="section-card glow-cyan">
+            <div class="content-wrapper">
+                <div class="side-block">
+                    <div class="obj-card">
+                        <p>🚀 <strong>Visibilité :</strong> Propulser vos serveurs via nos infrastructures de pub.</p>
+                    </div>
+                    <div class="obj-card" style="border-left-color: #5865f2;">
+                        <p>💬 <strong>Engagement :</strong> Maintenir une communauté active et à l'écoute.</p>
+                    </div>
+                    <div class="obj-card" style="border-left-color: #005f73;">
+                        <p>🛒 <strong>Monétisation :</strong> Vous proposer des espaces privatifs premium exclusifs.</p>
+                    </div>
                 </div>
-                <div class="obj-card" style="border-left-color: #5865f2;">
-                    <p>💬 <strong>Engagement :</strong> Maintenir une communauté active et à l'écoute.</p>
+                
+                <div class="text-block">
+                    <h2>Notre Objectif</h2>
+                    <p>Notre but principal est de casser les barrières habituelles de Discord en offrant une structure stable et professionnelle.</p>
+                    <p>Nous mettons un point d'honneur à offrir des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
                 </div>
-                <div class="obj-card" style="border-left-color: #005f73;">
-                    <p>🛒 <strong>Monétisation :</strong> Vous proposer des espaces privatifs premium exclusifs.</p>
-                </div>
-            </div>
-            
-            <div class="text-block">
-                <h2>Notre Objectif</h2>
-                <p>Notre but principal est de casser les barrières habituelles de Discord en offrant une structure stable et professionnelle.</p>
-                <p>Nous mettons un point d'honneur à offrir des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
             </div>
         </div>
     </section>
