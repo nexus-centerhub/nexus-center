@@ -1,22 +1,133 @@
-<div class="grid">
-            <!-- Serveur Communauté -->
-            <a href="LIEN_INVITATION_COMMUNAUTE" class="card">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus-Center | Écosystème Discord</title>
+    <style>
+        /* Fond avec dégradé style Discord Nitro */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #111214 30%, #5865f2 100%);
+            background-attachment: fixed;
+            color: #dbdee1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            background: rgba(17, 18, 20, 0.6); /* Effet de vitre fumée */
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #b5bac1;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Cartes des serveurs */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #2b2d31;
+            padding: 25px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #313338;
+            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.2);
+            border-color: #5865f2;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #949ba4;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Bouton Boutique stylé */
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #248046, #23a55a);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px; /* Bouton arrondi moderne */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(36, 128, 70, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(35, 165, 90, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Nexus-Center</h1>
+        <p class="subtitle">Propulsez vos projets au cœur de notre écosystème Discord</p>
+
+        <div class="grid">
+            <a href="#" class="card">
                 <h3>Communauté</h3>
                 <p>Échangez, partagez et rencontrez de nouveaux membres passionnés.</p>
             </a>
 
-            <!-- Serveur Publicité -->
-            <a href="LIEN_INVITATION_PUB" class="card">
+            <a href="#" class="card">
                 <h3>Publicité</h3>
                 <p>Donnez de la visibilité à vos projets et boostez votre audience.</p>
             </a>
 
-            <!-- Le futur Bot -->
-            <a href="LIEN_INVITATION_BOT" class="card">
+            <a href="#" class="card">
                 <h3>Nexus Bot</h3>
                 <p>Découvrez notre bot maison et ses fonctionnalités uniques.</p>
             </a>
         </div>
 
-        <!-- Espace business -->
-        <a href="LIEN_DE_TA_BOUTIQUE" class="cta-btn">Accéder à la Boutique (Salons Persos)</a>
+        <a href="#" class="cta-btn">🛒 Accéder à la Boutique (Salons Persos)</a>
+    </div>
+
+</body>
+</html>
