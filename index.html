@@ -31,7 +31,7 @@
         }
 
         .nav-container {
-            max-width: 1400px; /* Plus large pour prendre de la place */
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -48,13 +48,16 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 30px;
         }
 
-        /* Menu déroulant pour l'Accueil */
+        /* Menu déroulant CORRIGÉ */
         .dropdown {
             position: relative;
             display: inline-block;
+            padding-bottom: 15px; /* Crée un pont invisible pour la souris */
+            margin-bottom: -15px; /* Annule l'espace pour garder l'alignement */
         }
 
         .dropdown-content {
@@ -68,7 +71,7 @@
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 10px 0;
-            margin-top: 10px;
+            margin-top: 0; /* Collé au pont invisible */
         }
 
         .dropdown-content a {
@@ -95,7 +98,7 @@
 
         /* Structure des sections élargie */
         section {
-            padding: 80px 40px;
+            padding: 100px 40px 80px 40px;
             min-height: 50vh;
             display: flex;
             justify-content: center;
@@ -103,22 +106,21 @@
         }
 
         .content-wrapper {
-            max-width: 1400px; /* Largeur augmentée */
+            max-width: 1400px;
             width: 100%;
             display: flex;
-            gap: 60px; /* Espace équilibré entre les blocs */
+            gap: 60px;
             align-items: center;
             flex-wrap: wrap;
         }
 
-        /* Blocs de texte plus collés */
         .text-block {
             flex: 1.3;
             min-width: 400px;
         }
 
         .text-block p {
-            margin: 0 0 12px 0; /* Textes plus rapprochés */
+            margin: 0 0 12px 0;
         }
 
         .side-block {
@@ -132,7 +134,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Typographie */
         h1 {
             color: #ffffff;
             font-size: 4.5rem;
@@ -144,7 +145,7 @@
         h2 {
             color: #ffffff;
             font-size: 2.8rem;
-            margin: 0 0 20px 0; /* Plus collé au texte suivant */
+            margin: 0 0 20px 0;
             font-weight: 800;
             letter-spacing: -1px;
         }
@@ -152,7 +153,7 @@
         p {
             color: #b5bac1;
             font-size: 1.2rem;
-            line-height: 1.5; /* Interligne légèrement resserré pour faire bloc */
+            line-height: 1.5;
         }
 
         .btn-primary {
@@ -175,7 +176,7 @@
             background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
             padding: 14px;
-            margin-bottom: 10px; /* Plus serré */
+            margin-bottom: 10px;
             border-left: 4px solid #b81d61;
         }
 
@@ -190,7 +191,7 @@
 </head>
 <body>
 
-    <!-- Barre de navigation avec Menu Déroulant -->
+    <!-- Barre de navigation -->
     <header>
         <div class="nav-container">
             <div class="logo">Nexus-Center</div>
@@ -209,7 +210,7 @@
         </div>
     </header>
 
-    <!-- SECTION 1 : ACCUEIL HERO -->
+    <!-- SECTION 1 : ACCUEIL -->
     <section id="accueil" style="min-height: 80vh;">
         <div class="content-wrapper" style="text-align: center; justify-content: center;">
             <div class="text-block" style="max-width: 900px;">
