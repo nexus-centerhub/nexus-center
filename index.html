@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus-Center | Officiel</title>
     <style>
+        /* On bloque le flash blanc ici en imposant une couleur sombre par défaut */
         html {
             scroll-behavior: smooth;
+            background-color: #0d0c12;
         }
         
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0d0c12;
             background: linear-gradient(115deg, #b81d61 0%, #1c0e3a 35%, #0d1b2a 70%, #005f73 100%);
             background-attachment: fixed;
             color: #dbdee1;
@@ -110,6 +113,7 @@
         #accueil {
             min-height: 85vh;
             overflow: hidden; /* Empêche la vidéo de dépasser */
+            background-color: #170b29; /* Évite le flash blanc avant le chargement de la vidéo */
         }
 
         .video-bg {
@@ -258,7 +262,8 @@
         </div>
     </header>
 
-  <section id="accueil">
+    <!-- SECTION 1 : ACCUEIL -->
+    <section id="accueil">
         <video class="video-bg" autoplay loop muted playsinline>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-27734-large.mp4" type="video/mp4">
         </video>
@@ -309,7 +314,7 @@
                 <div class="text-block">
                     <h2>Notre Objectif</h2>
                     <p>Notre but principal est de casser les barrières habituelles de Discord en offrant une structure stable et professionnelle.</p>
-                    <p>Nous mettons un point d'honneur à offer des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
+                    <p>Nous mettons un point d'honneur à offrir des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
                 </div>
             </div>
         </div>
