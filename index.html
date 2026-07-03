@@ -11,37 +11,11 @@
         
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f0c1b; /* Fond de base très sombre pour faire ressortir les lueurs */
+            background: linear-gradient(115deg, #b81d61 0%, #1c0e3a 35%, #0d1b2a 70%, #005f73 100%);
+            background-attachment: fixed;
             color: #dbdee1;
             margin: 0;
             padding: 0;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Les grosses bulles lumineuses en arrière-plan */
-        .bg-glow-1 {
-            position: absolute;
-            top: 20%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(184, 29, 97, 0.25) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .bg-glow-2 {
-            position: absolute;
-            top: 55%;
-            right: -10%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0, 95, 115, 0.25) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            pointer-events: none;
         }
 
         /* Barre de navigation fixe */
@@ -78,12 +52,12 @@
             gap: 30px;
         }
 
-        /* Menu déroulant */
+        /* Menu déroulant CORRIGÉ */
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
-            margin-bottom: -15px;
+            padding-bottom: 15px; /* Crée un pont invisible pour la souris */
+            margin-bottom: -15px; /* Annule l'espace pour garder l'alignement */
         }
 
         .dropdown-content {
@@ -97,7 +71,7 @@
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 10px 0;
-            margin-top: 0;
+            margin-top: 0; /* Collé au pont invisible */
         }
 
         .dropdown-content a {
@@ -122,14 +96,42 @@
             color: #ffffff;
         }
 
-        /* Structure des sections */
+        /* Structure des sections élargie */
         section {
             padding: 100px 40px 80px 40px;
             min-height: 50vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            position: relative; /* Indispensable pour positionner les bulles */
+        }
+
+        /* Bulle lumineuse derrière la section Présentation (à gauche) */
+        #presentation::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(184, 29, 97, 0.4) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Bulle lumineuse derrière la section Objectifs (à droite) */
+        #objectifs::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translate(0%, -50%);
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(0, 95, 115, 0.4) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .content-wrapper {
@@ -139,6 +141,8 @@
             gap: 60px;
             align-items: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1; /* Aligne le contenu au-dessus des bulles */
         }
 
         .text-block {
@@ -153,8 +157,8 @@
         .side-block {
             flex: 0.9;
             min-width: 350px;
-            background: rgba(15, 15, 20, 0.5); /* Légèrement plus transparent pour voir la bulle derrière */
-            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 20, 0.6);
+            backdrop-filter: blur(8px);
             padding: 35px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.04);
@@ -217,10 +221,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Les deux grosses bulles de couleur en arrière-plan -->
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
 
     <!-- Barre de navigation -->
     <header>
