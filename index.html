@@ -128,6 +128,16 @@
             background-color: #4752c4;
         }
 
+        /* Style de validation verte */
+        .btn-discord.connected {
+            background-color: #23a55a;
+            cursor: default;
+        }
+        
+        .btn-discord.connected:hover {
+            background-color: #23a55a;
+        }
+
         .btn-discord:active {
             transform: scale(0.98);
         }
@@ -145,7 +155,7 @@
             min-height: 85vh;
         }
 
-        /* La grosse bulle avec effet glow */
+        /* Bulles de contenu avec effet glow */
         .section-card {
             width: 100%;
             max-width: 1300px;
@@ -214,7 +224,7 @@
             line-height: 1.6;
         }
 
-        /* Case à cocher discrète pour les CGU sous le titre principal */
+        /* Case à cocher */
         .auth-consent {
             display: flex;
             align-items: center;
@@ -253,7 +263,7 @@
             color: #ffffff;
         }
 
-        /* Pied de page (Footer) */
+        /* Footer */
         footer {
             background: rgba(10, 10, 15, 0.9);
             backdrop-filter: blur(10px);
@@ -275,6 +285,7 @@
         .footer-left {
             color: #ffffff;
             font-weight: 600;
+            text-align: left;
         }
 
         .footer-left span {
@@ -323,7 +334,6 @@
 </head>
 <body>
 
-    <!-- Barre de navigation -->
     <header>
         <div class="nav-container">
             <div class="logo">Nexus-Center</div>
@@ -341,24 +351,21 @@
                     <a href="#recrutement">Recrutement</a>
                 </nav>
                 
-                <!-- Le bouton se trouve maintenant ici en haut à droite -->
-                <button class="btn-discord" onclick="loginWithDiscord()">
+                <button id="login-btn" class="btn-discord" onclick="loginWithDiscord()">
                     <svg width="18" height="18" viewBox="0 0 127.14 96.36" fill="currentColor"><path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.73-10.93,68.43,68.43,0,0,1-10.64-5.12c.91-.67,1.81-1.37,2.65-2.1a75.22,75.22,0,0,0,72.88,0c.85.73,1.75,1.43,2.65,2.1a68.3,68.3,0,0,1-10.64,5.12,74.74,74.74,0,0,0,6.73,10.93,105.54,105.54,0,0,0,31.05-18.83C129.74,49.49,123.51,26.7,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/></svg>
-                    Connexion
+                    <span id="login-btn-text">Connexion</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- SECTION 1 : ACCUEIL -->
     <section id="accueil">
         <div class="content-wrapper" style="text-align: center; justify-content: center;">
             <div class="text-block" style="max-width: 900px;">
                 <h1>Nexus-Center</h1>
                 <p style="font-size: 1.5rem; color: #dbdee1; margin-bottom: 25px;">L'écosystème nouvelle génération pour vos communautés et projets Discord.</p>
                 
-                <!-- La case reste ici au centre, bien visible pour que l'utilisateur valide le rejoindre-auto -->
-                <div class="auth-consent">
+                <div id="consent-box" class="auth-consent">
                     <input type="checkbox" id="join-consent" checked>
                     <label for="join-consent">J'accepte que Nexus-Center m'ajoute au serveur Discord officiel.</label>
                 </div>
@@ -366,13 +373,12 @@
         </div>
     </section>
 
-    <!-- SECTION 2 : QUI SOMMES-NOUS -->
     <section id="presentation">
         <div class="section-card glow-pink">
             <div class="content-wrapper">
                 <div class="text-block">
                     <h2>Qui sommes-nous ?</h2>
-                    <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de plateformes thématiques.</p>
+                    <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de platemêmes thématiques.</p>
                     <p>Fondé avec l'ambition de centraliser l'activité, notre hub fait le pont entre le divertissement communautaire, l'acquisition publicitaire et l'innovation technologique via nos outils sur mesure.</p>
                 </div>
                 <div class="side-block">
@@ -383,7 +389,6 @@
         </div>
     </section>
 
-    <!-- SECTION 3 : NOTRE OBJECTIF -->
     <section id="objectifs">
         <div class="section-card glow-cyan">
             <div class="content-wrapper">
@@ -401,14 +406,13 @@
                 
                 <div class="text-block">
                     <h2>Notre Objectif</h2>
-                    <p>Notre but principal est de casser les barrières habituelles de Discord en offering une structure stable et professionnelle.</p>
+                    <p>Notre but principal est de casser les barrières habituelles de Discord en offrant une structure stable et professionnelle.</p>
                     <p>Nous mettons un point d'honneur à offrir des services de qualité, qu'ils soient gratuits pour nos membres actifs ou premium pour ceux qui souhaitent passer au niveau supérieur avec leurs propres espaces modérables.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PIED DE PAGE -->
     <footer>
         <div class="footer-container">
             <div class="footer-left">
@@ -421,8 +425,33 @@
         </div>
     </footer>
 
-    <!-- LOGIQUE DE REDIRECTION -->
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Si le lien contient ?login=success, on valide et on nettoie l'URL
+            if (urlParams.get('login') === 'success') {
+                localStorage.setItem('isDiscordConnected', 'true');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            // Si le statut connecté est trouvé en mémoire
+            if (localStorage.getItem('isDiscordConnected') === 'true') {
+                const btn = document.getElementById('login-btn');
+                const btnText = document.getElementById('login-btn-text');
+                const consentBox = document.getElementById('consent-box');
+
+                if (btn && btnText) {
+                    btnText.textContent = "Connexion validée";
+                    btn.classList.add('connected');
+                    btn.removeAttribute('onclick'); 
+                }
+                if (consentBox) {
+                    consentBox.style.display = 'none';
+                }
+            }
+        });
+
         function loginWithDiscord() {
             const isChecked = document.getElementById('join-consent').checked;
             
@@ -431,7 +460,7 @@
                 return;
             }
 
-            // Remplace le lien ci-dessous par ton "Auth Link" généré par RestoreCord
+            // Remplace l'URL ci-dessous par l'adresse "Auth Link" générée par RestoreCord
             window.location.href = "https://restorecord.com/verify/Nexus%20Center%20%E2%94%80%202026";
         }
     </script>
