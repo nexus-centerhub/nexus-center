@@ -49,6 +49,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            cursor: pointer;
         }
 
         .nav-right-block {
@@ -107,7 +108,17 @@
             color: #ffffff;
         }
 
-        /* Style du Bouton Discord dans l'en-tête */
+        /* Onglet Admin masqué par défaut */
+        #admin-link {
+            display: none;
+            color: #ff4a9a;
+            font-weight: 600;
+        }
+        #admin-link:hover {
+            color: #ffffff;
+        }
+
+        /* Style du Bouton Discord */
         .btn-discord {
             display: inline-flex;
             align-items: center;
@@ -128,7 +139,6 @@
             background-color: #4752c4;
         }
 
-        /* Style de validation verte */
         .btn-discord.connected {
             background-color: #23a55a;
             cursor: default;
@@ -155,7 +165,6 @@
             min-height: 85vh;
         }
 
-        /* Bulles de contenu avec effet glow */
         .section-card {
             width: 100%;
             max-width: 1300px;
@@ -224,7 +233,6 @@
             line-height: 1.6;
         }
 
-        /* Case à cocher */
         .auth-consent {
             display: flex;
             align-items: center;
@@ -263,7 +271,6 @@
             color: #ffffff;
         }
 
-        /* Footer */
         footer {
             background: rgba(10, 10, 15, 0.9);
             backdrop-filter: blur(10px);
@@ -285,7 +292,6 @@
         .footer-left {
             color: #ffffff;
             font-weight: 600;
-            text-align: left;
         }
 
         .footer-left span {
@@ -336,7 +342,7 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo">Nexus-Center</div>
+            <div class="logo" ondblclick="triggerAdminCheck()">Nexus-Center</div>
             <div class="nav-right-block">
                 <nav class="nav-links">
                     <div class="dropdown">
@@ -349,6 +355,8 @@
                     <a href="#projets">Nos Projets</a>
                     <a href="#partenaires">Partenaires</a>
                     <a href="#recrutement">Recrutement</a>
+                    
+                    <a id="admin-link" href="admin.html">Panel Admin</a>
                 </nav>
                 
                 <button id="login-btn" class="btn-discord" onclick="loginWithDiscord()">
@@ -378,7 +386,7 @@
             <div class="content-wrapper">
                 <div class="text-block">
                     <h2>Qui sommes-nous ?</h2>
-                    <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de platemêmes thématiques.</p>
+                    <p>Nexus-Center n'est pas un simple serveur Discord, c'est une véritable filiale et un réseau interconnecté de plateformes thématiques.</p>
                     <p>Fondé avec l'ambition de centraliser l'activité, notre hub fait le pont entre le divertissement communautaire, l'acquisition publicitaire et l'innovation technologique via nos outils sur mesure.</p>
                 </div>
                 <div class="side-block">
@@ -426,16 +434,17 @@
     </footer>
 
     <script>
+        // Définis ton mot de passe admin secret ici (change-le par ce que tu veux)
+        const ADMIN_SECRET_KEY = "NEXUS_ADMIN_2026";
+
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             
-            // Si le lien contient ?login=success, on valide et on nettoie l'URL
             if (urlParams.get('login') === 'success') {
                 localStorage.setItem('isDiscordConnected', 'true');
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
 
-            // Si le statut connecté est trouvé en mémoire
             if (localStorage.getItem('isDiscordConnected') === 'true') {
                 const btn = document.getElementById('login-btn');
                 const btnText = document.getElementById('login-btn-text');
@@ -450,7 +459,24 @@
                     consentBox.style.display = 'none';
                 }
             }
+
+            // Vérifie au chargement si le mode admin est déjà activé sur ce navigateur
+            if (localStorage.getItem('isNexusAdmin') === 'true') {
+                document.getElementById('admin-link').style.display = 'inline-block';
+            }
         });
+
+        // Fonction secrète déclenchée par un double-clic sur le logo "Nexus-Center"
+        function triggerAdminCheck() {
+            const password = prompt("Entrez le code secret Admin :");
+            if (password === ADMIN_SECRET_KEY) {
+                localStorage.setItem('isNexusAdmin', 'true');
+                document.getElementById('admin-link').style.display = 'inline-block';
+                alert("Accès Admin activé ! L'onglet apparaît maintenant dans le menu.");
+            } else if (password !== null) {
+                alert("Code incorrect.");
+            }
+        }
 
         function loginWithDiscord() {
             const isChecked = document.getElementById('join-consent').checked;
@@ -460,9 +486,9 @@
                 return;
             }
 
-            // Remplace l'URL ci-dessous par l'adresse "Auth Link" générée par RestoreCord
             window.location.href = "https://restorecord.com/verify/Nexus%20Center%20-%202026";
         }
     </script>
 </body>
+</html>
 </html>
